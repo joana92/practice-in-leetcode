@@ -1,0 +1,43 @@
+
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        int len, before, curr,next;
+        len=nums.length;
+        if (len<=1)
+        return len;
+        if (len==2){
+            if(nums[0]==nums[1])
+            return 1;
+            else return len;
+        }
+        before=1;
+        curr=2;
+        next=3;
+        while(next<len){
+         if(nums[before]<nums[curr] & nums[curr]<nums[next]){
+             before++;
+             curr++;
+             next++;
+         }  
+         else{
+             nums[curr]=nums[next];
+             before++;
+             curr++;
+             next++;
+             len--;
+         }
+        }
+        return len;
+    }
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums = {1, 1,1};
+        for (int i : nums) {
+            System.out.format("%d ", i);
+        }
+        System.out.format("\nlen = %d\n", s.removeDuplicates(nums));
+        for (int i : nums) {
+            System.out.format("%d ", i);
+        }
+    }
+}
