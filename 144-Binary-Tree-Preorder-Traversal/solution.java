@@ -12,9 +12,10 @@ public class Solution {
         List<Integer> result = new ArrayList<Integer>();
         if(root==null)
         return result;
+        result.add(root.val);
         List<Integer> left = preorderTraversal(root.left);
         List<Integer> right = preorderTraversal(root.right);
-        result.add(root.val);
+      //  result.add(root.val);
         result.addAll(left);
         result.addAll(right);
         return result;
